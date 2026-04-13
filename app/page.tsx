@@ -5,6 +5,7 @@ import Link from "next/link";
 import DailySummary from "@/components/DailySummary";
 import MealCard from "@/components/MealCard";
 import { getDailyNutrition, getTodaysMeals } from "@/lib/storage";
+import { createClient } from "@/lib/supabase-browser";
 import type { SavedMeal, DailyNutrition } from "@/lib/types";
 
 export default function Dashboard() {
@@ -17,11 +18,17 @@ export default function Dashboard() {
     mealCount: 0,
   });
   const [recentMeals, setRecentMeals] = useState<SavedMeal[]>([]);
+  const [userEmail, setUserEmail] = useState<string | null>(null);
+
+  const supabase = createClient();
 
   useEffect(() => {
     setNutrition(getDailyNutrition());
     setRecentMeals(getTodaysMeals().slice(0, 5));
-  }, []);
+    supabase.auth.getUser().then(({ data }) => {
+      setUserEmail(data.user?.email ?? null);
+    });
+  }, [supabase.auth]);
 
   const hour = new Date().getHours();
   const greeting =
@@ -33,7 +40,20 @@ export default function Dashboard() {
       <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="text-2xl font-bold gradient-text">GutSense</h1>
-          <p className="text-text-secondary text-sm mt-0.5">{greeting}</p>
+          <div className="flex items-center gap-2 mt-0.5">
+            <p className="text-text-secondary text-sm">{greeting}</p>
+            {userEmail && (
+              <button
+                onClick={async () => {
+                  await supabase.auth.signOut();
+                  window.location.href = "/login";
+                }}
+                className="text-[10px] text-muted hover:text-danger transition-colors"
+              >
+                Sign out
+              </button>
+            )}
+          </div>
         </div>
         <Link
           href="/camera"

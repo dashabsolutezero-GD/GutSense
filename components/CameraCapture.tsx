@@ -113,6 +113,14 @@ export default function CameraCapture() {
         {error && (
           <div className="rounded-2xl bg-danger-light border border-danger/15 p-4 text-center card-shadow">
             <p className="text-danger text-sm font-medium">{error}</p>
+            {error.includes("limit") && (
+              <a
+                href="/pricing"
+                className="inline-block mt-3 text-sm font-semibold text-primary hover:underline"
+              >
+                Upgrade for more scans →
+              </a>
+            )}
           </div>
         )}
 

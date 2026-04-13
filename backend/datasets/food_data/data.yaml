@@ -1,0 +1,113 @@
+# GutSense Food Detection — YOLO11m Dataset Config
+# 85 food classes: Indian-first, then global coverage
+# Trained on RTX 5060 (8GB VRAM)
+
+path: C:\Gut Related Project\GutSense\backend\datasets\food_data
+train: train/images
+val: val/images
+
+names:
+  # ── Indian Foods (0–29) ─────────────────────────────────
+  0: dal
+  1: roti
+  2: naan
+  3: paratha
+  4: dosa
+  5: idli
+  6: sambar
+  7: biryani
+  8: paneer
+  9: curry
+  10: raita
+  11: pakora
+  12: samosa
+  13: pav-bhaji
+  14: chole
+  15: aloo-gobi
+  16: palak-paneer
+  17: tandoori-chicken
+  18: khichdi
+  19: upma
+  20: poha
+  21: uttapam
+  22: vada
+  23: korma
+  24: tikka
+  25: chaat
+  26: gulab-jamun
+  27: jalebi
+  28: kheer
+  29: lassi
+
+  # ── Vegetables (30–41) ──────────────────────────────────
+  30: broccoli
+  31: spinach
+  32: carrot
+  33: cucumber
+  34: tomato
+  35: potato
+  36: cauliflower
+  37: eggplant
+  38: onion
+  39: bell-pepper
+  40: cabbage
+  41: beans
+
+  # ── Fruits (42–49) ──────────────────────────────────────
+  42: apple
+  43: banana
+  44: orange
+  45: mango
+  46: grapes
+  47: watermelon
+  48: papaya
+  49: pomegranate
+
+  # ── Proteins (50–56) ────────────────────────────────────
+  50: chicken
+  51: fish
+  52: egg
+  53: mutton
+  54: shrimp
+  55: tofu
+  56: lentils
+
+  # ── Grains & Staples (57–64) ────────────────────────────
+  57: rice
+  58: pasta
+  59: bread
+  60: noodles
+  61: oats
+  62: quinoa
+  63: couscous
+  64: tortilla
+
+  # ── Global Prepared Foods (65–76) ───────────────────────
+  65: pizza
+  66: burger
+  67: sandwich
+  68: soup
+  69: salad
+  70: sushi
+  71: tacos
+  72: stir-fry
+  73: fried-rice
+  74: ramen
+  75: falafel
+  76: hummus
+
+  # ── Dairy & Drinks (77–82) ──────────────────────────────
+  77: yogurt
+  78: milk
+  79: cheese
+  80: smoothie
+  81: juice
+  82: tea
+
+  # ── Snacks & Sweets (83–88) ─────────────────────────────
+  83: fries
+  84: chips
+  85: cake
+  86: candy
+  87: cookies
+  88: chocolate

@@ -55,10 +55,17 @@ export default function Dashboard() {
             )}
           </div>
         </div>
-        <Link
-          href="/camera"
-          className="w-12 h-12 rounded-full bg-primary flex items-center justify-center glow-green hover:bg-primary-dark transition-all active:scale-95"
-        >
+        <div className="flex items-center gap-2">
+          <Link
+            href="/pricing"
+            className="px-3 py-1.5 rounded-full bg-accent/10 text-accent text-xs font-semibold hover:bg-accent/20 transition-colors"
+          >
+            Upgrade
+          </Link>
+          <Link
+            href="/camera"
+            className="w-12 h-12 rounded-full bg-primary flex items-center justify-center glow-green hover:bg-primary-dark transition-all active:scale-95"
+          >
           <svg
             className="w-5 h-5 text-white"
             fill="none"
@@ -72,7 +79,8 @@ export default function Dashboard() {
               d="M12 4.5v15m7.5-7.5h-15"
             />
           </svg>
-        </Link>
+          </Link>
+        </div>
       </div>
 
       {/* Daily Summary */}
